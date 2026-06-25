@@ -1,0 +1,1 @@
+module.exports = {\n  preset: 'ts-jest',\n  testEnvironment: 'node',\n  roots: ['<rootDir>/tests', '<rootDir>/src'],\n  testMatch: ['**/__tests__/**/*.ts', '**/?(*.)+(spec|test).ts'],\n  moduleFileExtensions: ['ts', 'js', 'json'],\n  collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts'],\n  testPathIgnorePatterns: ['/node_modules/'],\n};\n
