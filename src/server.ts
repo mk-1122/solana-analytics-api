@@ -48,8 +48,13 @@ app.use(errorHandler);
 // Start Server
 const startServer = async () => {
   try {
-    await connectDB();
-    logger.info('Database connected');
+    // Try to connect to MongoDB, but don't fail if it's not available
+    try {
+      await connectDB();
+      logger.info('Database connected');
+    } catch (dbError) {
+      logger.warn('MongoDB not available, running in demo mode');
+    }
 
     const server = app.listen(PORT, () => {
       logger.info(`Server running on port ${PORT}`);
